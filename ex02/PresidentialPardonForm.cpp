@@ -6,7 +6,7 @@
 /*   By: anarama <anarama@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 16:08:01 by anarama           #+#    #+#             */
-/*   Updated: 2024/10/16 17:09:30 by anarama          ###   ########.fr       */
+/*   Updated: 2024/10/16 18:27:52 by anarama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ PresidentialPardonForm::~PresidentialPardonForm( void ) {}
 void PresidentialPardonForm::execute( Bureaucrat const& executor ) const {
 	if (executor.getGrade() > this->getGradeToSign() 
 	&& executor.getGrade() > this->getGradeToExec()) {
+		std::cout << "Presidential pardon refused!" << std::endl;
 		throw Bureaucrat::GradeTooLowException();
 	}
 	std::cout << "< Makes some drilling noises... >" << std::endl;

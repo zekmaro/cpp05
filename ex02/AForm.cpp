@@ -6,7 +6,7 @@
 /*   By: anarama <anarama@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 12:24:08 by anarama           #+#    #+#             */
-/*   Updated: 2024/10/16 16:39:39 by anarama          ###   ########.fr       */
+/*   Updated: 2024/10/16 18:30:58 by anarama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,11 @@ std::string const& AForm::getName( void ) const {
 	return this->_name;
 }
 
-int const AForm::getGradeToSign( void ) const {
+int AForm::getGradeToSign( void ) const {
 	return this->_gradeToSign;	
 }
 
-int const AForm::getGradeToExec( void ) const {
+int AForm::getGradeToExec( void ) const {
 	return this->_gradeToExec;
 }
 

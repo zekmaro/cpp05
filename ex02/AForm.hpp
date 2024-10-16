@@ -6,7 +6,7 @@
 /*   By: anarama <anarama@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 12:24:10 by anarama           #+#    #+#             */
-/*   Updated: 2024/10/16 16:37:23 by anarama          ###   ########.fr       */
+/*   Updated: 2024/10/16 18:30:48 by anarama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ class AForm {
 		virtual ~AForm( void );
 
 		std::string const&	getName( void ) const;
-		int const			getGradeToSign( void ) const;
-		int const			getGradeToExec( void ) const;
+		int					getGradeToSign( void ) const;
+		int					getGradeToExec( void ) const;
 		bool				getIsSigned( void ) const;
 
 		class GradeTooHighException: public std::exception {
@@ -55,6 +55,8 @@ class AForm {
 		
 		void validateGradeForm( int grade );
 		void beSigned( const Bureaucrat& b );
+
+		virtual void execute( Bureaucrat const& executor ) const;
 };
 
 #endif // FORM_HPP
