@@ -6,7 +6,7 @@
 /*   By: anarama <anarama@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 12:24:10 by anarama           #+#    #+#             */
-/*   Updated: 2024/10/16 18:30:48 by anarama          ###   ########.fr       */
+/*   Updated: 2024/10/17 12:02:55 by anarama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 #include "Bureaucrat.hpp"
 # include <string>
 
-# define DEFAULT_FORM_NAME "name"
-# define DEFAULT_GRADE_TO_SIGN 1
-# define DEFAULT_GRADE_TO_EXEC 1
-# define DEFAULT_IS_SIGNED false
+# define DEFAULT_FORM_NAME		"name"
+# define DEFAULT_GRADE_TO_SIGN	1
+# define DEFAULT_GRADE_TO_EXEC	1
+# define DEFAULT_IS_SIGNED		false
 
 class AForm {
 	private:
@@ -50,8 +50,13 @@ class AForm {
 			public:
 				const char* what() const throw();	
 		};
+
+		class FormNotSignedException: public std::exception {
+			public:
+				const char* what() const throw();	
+		};
 		
-		bool setIsSigned( bool isSigned );
+		void setIsSigned( bool isSigned );
 		
 		void validateGradeForm( int grade );
 		void beSigned( const Bureaucrat& b );

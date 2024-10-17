@@ -6,7 +6,7 @@
 /*   By: anarama <anarama@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 12:24:08 by anarama           #+#    #+#             */
-/*   Updated: 2024/10/16 15:32:42 by anarama          ###   ########.fr       */
+/*   Updated: 2024/10/17 12:04:13 by anarama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,11 @@ std::string const& Form::getName( void ) const {
 	return this->_name;
 }
 
-int const Form::getGradeToSign( void ) const {
+int Form::getGradeToSign( void ) const {
 	return this->_gradeToSign;	
 }
 
-int const Form::getGradeToExec( void ) const {
+int Form::getGradeToExec( void ) const {
 	return this->_gradeToExec;
 }
 
@@ -57,16 +57,24 @@ bool Form::getIsSigned( void ) const {
 	return this->_isSigned;	
 }
 
-bool Form::setIsSigned( bool isSigned ) {
+void Form::setIsSigned( bool isSigned ) {
 	this->_isSigned = isSigned;
 }
 
-void validateGradeForm( int grade ) {
+void Form::validateGradeForm( int grade ) {
 	if (grade < 1) {
 		throw Form::GradeTooHighException();
 	} else if (grade > 150) {
 		throw Form::GradeTooLowException();
 	}
+}
+
+const char* Form::GradeTooHighException::what() const throw() {
+    return "Grade is too high!";
+}
+
+const char* Form::GradeTooLowException::what() const throw() {
+    return "Grade is too low!";
 }
 
 void Form::beSigned( const Bureaucrat& b ) {

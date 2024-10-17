@@ -6,7 +6,7 @@
 /*   By: anarama <anarama@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 12:24:08 by anarama           #+#    #+#             */
-/*   Updated: 2024/10/16 18:30:58 by anarama          ###   ########.fr       */
+/*   Updated: 2024/10/17 12:05:21 by anarama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,10 @@ AForm::AForm( std::string const name, int const gradeToSign,
 	_name(name),
 	_gradeToSign(gradeToSign),
 	_gradeToExec(gradeToExec),
-	_isSigned(isSigned) {}
+	_isSigned(isSigned) {
+	validateGradeForm(gradeToSign);
+	validateGradeForm(gradeToExec);	
+}
 
 AForm& AForm::operator=( const AForm& other ) {
 	if (this != &other) {
@@ -64,16 +67,28 @@ bool AForm::getIsSigned( void ) const {
 	return this->_isSigned;	
 }
 
-bool AForm::setIsSigned( bool isSigned ) {
+void AForm::setIsSigned( bool isSigned ) {
 	this->_isSigned = isSigned;
 }
 
-void validateGradeForm( int grade ) {
+void AForm::validateGradeForm( int grade ) {
 	if (grade < 1) {
 		throw AForm::GradeTooHighException();
 	} else if (grade > 150) {
 		throw AForm::GradeTooLowException();
 	}
+}
+
+const char* AForm::GradeTooHighException::what() const throw() {
+    return "Grade is too high!";
+}
+
+const char* AForm::GradeTooLowException::what() const throw() {
+    return "Grade is too low!";
+}
+
+const char* AForm::FormNotSignedException::what() const throw() {
+    return "For was not signed yet!";
 }
 
 void AForm::beSigned( const Bureaucrat& b ) {
@@ -86,3 +101,5 @@ void AForm::beSigned( const Bureaucrat& b ) {
 		throw AForm::GradeTooLowException();
 	}
 }
+
+void AForm::execute( Bureaucrat const& executor ) const {(void)executor;}

@@ -6,7 +6,7 @@
 /*   By: anarama <anarama@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 11:51:47 by anarama           #+#    #+#             */
-/*   Updated: 2024/10/16 15:30:04 by anarama          ###   ########.fr       */
+/*   Updated: 2024/10/17 11:26:20 by anarama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void Bureaucrat::validateGrade( int grade ) const {
 }
 
 std::ostream& operator<<( std::ostream& out, const Bureaucrat& other ) {
-	out << other.getGrade();
+	out << other.getName() << ", bureaucrat grade " << other.getGrade() << std::endl;
 	return out;
 }
 

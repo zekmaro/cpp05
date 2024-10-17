@@ -6,10 +6,11 @@
 /*   By: anarama <anarama@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 16:08:01 by anarama           #+#    #+#             */
-/*   Updated: 2024/10/16 18:28:31 by anarama          ###   ########.fr       */
+/*   Updated: 2024/10/17 11:56:05 by anarama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <exception>
 #include <fstream>
 #include <ostream>
 
@@ -20,10 +21,15 @@
 #include "Bureaucrat.hpp"
 
 ShrubberyCreationForm::ShrubberyCreationForm( void ) :
-	AForm("shrubbery", 145, 137, false) , _target(DEFAULT_TARGET_SCHRUBBERY) {}
+	AForm("shrubbery", 145, 137, false),
+	_target(DEFAULT_TARGET_SCHRUBBERY) {}
 
 ShrubberyCreationForm::ShrubberyCreationForm( const ShrubberyCreationForm& other ) :
-	AForm(other.getName(), other.getGradeToSign(), other.getGradeToExec(), other.getIsSigned()), _target(other.getTarget()) {}
+	AForm(	other.getName(),
+			other.getGradeToSign(),
+			other.getGradeToExec(),
+			other.getIsSigned() ),
+	_target(other.getTarget()) {}
 
 ShrubberyCreationForm& ShrubberyCreationForm::operator=( const ShrubberyCreationForm& other ) {
 	if (this != &other) {
@@ -35,12 +41,17 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=( const ShrubberyCreation
 ShrubberyCreationForm::~ShrubberyCreationForm( void ) {}
 
 void ShrubberyCreationForm::execute( Bureaucrat const& executor ) const {
-	if (executor.getGrade() > this->getGradeToSign() 
-	&& executor.getGrade() > this->getGradeToExec()) {
-		std::cout << "Shrubbery creation failed!" << std::endl;
-		throw Bureaucrat::GradeTooLowException();
+	if (this->getIsSigned() == false) {
+		throw ShrubberyCreationForm::FormNotSignedException();
+	}
+	if (executor.getGrade() > this->getGradeToExec()) {
+		std::cout << "Shrubbery creation failed!." << std::endl;
+		throw ShrubberyCreationForm::GradeTooLowException();
 	}
 	std::ofstream output((this->getTarget() + "_shrubbery").c_str());
+	if (!output.is_open()) {
+		throw std::ios_base::failure("Failed to open the file");
+	}
 	output <<
 			"         v" << std::endl <<
 			"        >X<" << std::endl <<

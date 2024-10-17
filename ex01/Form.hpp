@@ -6,20 +6,21 @@
 /*   By: anarama <anarama@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 12:24:10 by anarama           #+#    #+#             */
-/*   Updated: 2024/10/16 15:26:37 by anarama          ###   ########.fr       */
+/*   Updated: 2024/10/17 12:02:51 by anarama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FORM_HPP
 # define FORM_HPP
 
-#include "Bureaucrat.hpp"
 # include <string>
 
-# define DEFAULT_FORM_NAME "name"
-# define DEFAULT_GRADE_TO_SIGN 1
-# define DEFAULT_GRADE_TO_EXEC 1
-# define DEFAULT_IS_SIGNED false
+# include "Bureaucrat.hpp"
+
+# define DEFAULT_FORM_NAME		"name"
+# define DEFAULT_GRADE_TO_SIGN	1
+# define DEFAULT_GRADE_TO_EXEC	1
+# define DEFAULT_IS_SIGNED		false
 
 class Form {
 	private:
@@ -35,8 +36,8 @@ class Form {
 		~Form( void );
 
 		std::string const&	getName( void ) const;
-		int const			getGradeToSign( void ) const;
-		int const			getGradeToExec( void ) const;
+		int					getGradeToSign( void ) const;
+		int					getGradeToExec( void ) const;
 		bool				getIsSigned( void ) const;
 
 		class GradeTooHighException: public std::exception {
@@ -49,7 +50,7 @@ class Form {
 				const char* what() const throw();	
 		};
 		
-		bool setIsSigned( bool isSigned );
+		void setIsSigned( bool isSigned );
 		
 		void validateGradeForm( int grade );
 		void beSigned( const Bureaucrat& b );

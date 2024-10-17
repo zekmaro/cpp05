@@ -6,7 +6,7 @@
 /*   By: anarama <anarama@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 11:51:47 by anarama           #+#    #+#             */
-/*   Updated: 2024/10/16 12:38:22 by anarama          ###   ########.fr       */
+/*   Updated: 2024/10/17 11:23:00 by anarama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,14 @@ void Bureaucrat::decrementGrade( void ) {
 }
 
 void Bureaucrat::validateGrade( int grade ) {
-	validateGrade(grade);
+	if (grade < 1) {
+		throw Bureaucrat::GradeTooHighException();
+	} else if (grade > 150) {
+		throw Bureaucrat::GradeTooLowException();
+	}
 }
 
 std::ostream& operator<<( std::ostream& out, const Bureaucrat& other ) {
-	out << other.getGrade();
+	out << other.getName() << ", bureaucrat grade " << other.getGrade() << std::endl;
 	return out;
 }

@@ -6,7 +6,7 @@
 #    By: anarama <anarama@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/29 15:38:54 by anarama           #+#    #+#              #
-#    Updated: 2024/10/16 12:20:47 by anarama          ###   ########.fr        #
+#    Updated: 2024/10/17 12:01:53 by anarama          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,10 +18,18 @@ CFLAGS	:= -Wall -Wextra -Werror -std=c++98
 
 OBJDIR	:= obj
 
-HEADERS	:=	Bureaucrat.hpp
+HEADERS	:=	AForm.hpp \
+			Bureaucrat.hpp \
+			PresidentialPardonForm.hpp \
+			RobotomyRequestForm.hpp \
+			ShrubberyCreationForm.hpp
 
 SRC		:=	main.cpp \
-			Bureaucrat.cpp
+			AForm.cpp \
+			Bureaucrat.cpp \
+			PresidentialPardonForm.cpp \
+			RobotomyRequestForm.cpp \
+			ShrubberyCreationForm.cpp
 
 OBJ		:= $(SRC:%.cpp=$(OBJDIR)/%.o)
 
