@@ -6,16 +6,15 @@
 /*   By: anarama <anarama@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 12:24:10 by anarama           #+#    #+#             */
-/*   Updated: 2024/10/17 12:20:55 by anarama          ###   ########.fr       */
+/*   Updated: 2024/10/17 12:19:19 by anarama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FORM_HPP
 # define FORM_HPP
 
+#include "Bureaucrat.hpp"
 # include <string>
-
-# include "Bureaucrat.hpp"
 
 # define DEFAULT_FORM_NAME		"name"
 # define DEFAULT_GRADE_TO_SIGN	1

@@ -6,7 +6,7 @@
 /*   By: anarama <anarama@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 12:24:08 by anarama           #+#    #+#             */
-/*   Updated: 2024/10/17 12:05:21 by anarama          ###   ########.fr       */
+/*   Updated: 2024/10/17 12:19:24 by anarama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,3 +103,13 @@ void AForm::beSigned( const Bureaucrat& b ) {
 }
 
 void AForm::execute( Bureaucrat const& executor ) const {(void)executor;}
+
+std::ostream& operator<<( std::ostream& out, const AForm& other ) {
+	out << 
+		"name: " << other.getName() << std::endl << 
+		"grade to sign: " << other.getGradeToSign() << std::endl <<
+		"grade to exec: " << other.getGradeToExec() << std::endl <<
+		"is signed: " << other.getIsSigned() << std::endl;
+
+	return out;
+}

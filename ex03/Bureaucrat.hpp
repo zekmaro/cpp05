@@ -6,7 +6,7 @@
 /*   By: anarama <anarama@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 11:51:50 by anarama           #+#    #+#             */
-/*   Updated: 2024/10/17 12:14:25 by anarama          ###   ########.fr       */
+/*   Updated: 2024/10/16 18:17:17 by anarama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 
 # define DEFAULT_NAME "default_name"
 # define DEFAULT_GRADE 150
+
+class AForm;
 
 class Bureaucrat {
 	private:
@@ -49,9 +51,12 @@ class Bureaucrat {
 		void incrementGrade( void );
 		void decrementGrade( void );
 
-		void validateGrade( int grade );
+		void validateGrade( int grade ) const;
+		void signForm( std::string const& formName ) const;
+
+		void executeForm( AForm const & form );
 };
 
-std::ostream& operator<<( std::ostream& out, const Bureaucrat& other );
+std::ostream& operator<<( std::ostream& out, const Bureaucrat&other );
 
 #endif // BUREAUCRAT_HPP

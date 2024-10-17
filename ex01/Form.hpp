@@ -6,7 +6,7 @@
 /*   By: anarama <anarama@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 12:24:10 by anarama           #+#    #+#             */
-/*   Updated: 2024/10/17 12:02:51 by anarama          ###   ########.fr       */
+/*   Updated: 2024/10/17 12:14:18 by anarama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,7 @@ class Form {
 		void validateGradeForm( int grade );
 		void beSigned( const Bureaucrat& b );
 };
+
+std::ostream& operator<<( std::ostream& out, const Form& other );
 
 #endif // FORM_HPP
