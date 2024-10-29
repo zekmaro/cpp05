@@ -6,7 +6,7 @@
 /*   By: anarama <anarama@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 12:24:10 by anarama           #+#    #+#             */
-/*   Updated: 2024/10/17 12:20:55 by anarama          ###   ########.fr       */
+/*   Updated: 2024/10/29 14:23:03 by anarama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ class AForm {
 		void validateGradeForm( int grade );
 		void beSigned( const Bureaucrat& b );
 
-		virtual void execute( Bureaucrat const& executor ) const;
+		virtual void execute( Bureaucrat const& executor ) const = 0;
 };
 
 std::ostream& operator<<( std::ostream& out, const AForm& other );
