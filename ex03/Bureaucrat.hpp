@@ -6,7 +6,7 @@
 /*   By: anarama <anarama@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 11:51:50 by anarama           #+#    #+#             */
-/*   Updated: 2024/10/16 18:17:17 by anarama          ###   ########.fr       */
+/*   Updated: 2024/10/30 10:13:10 by anarama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ class Bureaucrat {
 		void decrementGrade( void );
 
 		void validateGrade( int grade ) const;
-		void signForm( std::string const& formName ) const;
+		void signForm( AForm & form );
 
 		void executeForm( AForm const & form );
 };

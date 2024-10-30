@@ -6,10 +6,9 @@
 /*   By: anarama <anarama@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 12:24:08 by anarama           #+#    #+#             */
-/*   Updated: 2024/10/17 12:18:24 by anarama          ###   ########.fr       */
+/*   Updated: 2024/10/30 10:16:34 by anarama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include <iostream>
 
@@ -79,11 +78,14 @@ const char* Form::GradeTooLowException::what() const throw() {
 
 void Form::beSigned( const Bureaucrat& b ) {
 	if (b.getGrade() <= this->getGradeToSign()) {
-		this->setIsSigned(true);
-		b.signForm(this->getName());
-	}
-	else {
-		std::cout << b.getGrade() << "couldn’t sign " << this->getName() << " because grade was too low" << std::endl;
+		if (this->getIsSigned() == false) {
+			this->setIsSigned(true);
+			std::cout << this->getName() << " form was successfuly signed" << std::endl;
+		} else if (this->getIsSigned() == true) {
+			std::cout << this->getName() << " form was already signed" << std::endl;
+		}
+	} else {
+		std::cout << b.getName() << " couldn’t sign " << this->getName() << " because grade was too low" << std::endl;
 		throw Form::GradeTooLowException();
 	}
 }

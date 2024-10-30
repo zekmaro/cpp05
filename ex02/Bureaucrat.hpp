@@ -6,14 +6,14 @@
 /*   By: anarama <anarama@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 11:51:50 by anarama           #+#    #+#             */
-/*   Updated: 2024/10/29 14:25:16 by anarama          ###   ########.fr       */
+/*   Updated: 2024/10/30 10:14:03 by anarama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
 
-#include <exception>
+# include <exception>
 # include <string>
 
 # define DEFAULT_NAME "default_name"

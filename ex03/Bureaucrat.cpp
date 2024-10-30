@@ -6,7 +6,7 @@
 /*   By: anarama <anarama@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 11:51:47 by anarama           #+#    #+#             */
-/*   Updated: 2024/10/17 12:00:42 by anarama          ###   ########.fr       */
+/*   Updated: 2024/10/30 10:12:44 by anarama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,8 @@ std::ostream& operator<<( std::ostream& out, const Bureaucrat& other ) {
 	return out;
 }
 
-void Bureaucrat::signForm( std::string const& formName ) const {
-	std::cout << this->_name << " signed " << formName;
+void Bureaucrat::signForm( AForm & form ) {
+	form.beSigned(*this);
 }
 
 void Bureaucrat::executeForm( AForm const & form ) {

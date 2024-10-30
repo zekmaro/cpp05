@@ -6,7 +6,7 @@
 /*   By: anarama <anarama@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 11:51:47 by anarama           #+#    #+#             */
-/*   Updated: 2024/10/17 11:26:20 by anarama          ###   ########.fr       */
+/*   Updated: 2024/10/30 11:33:27 by anarama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <string>
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 Bureaucrat::Bureaucrat( void ) : _name(DEFAULT_NAME), _grade(DEFAULT_GRADE) {}
 
@@ -76,6 +77,6 @@ std::ostream& operator<<( std::ostream& out, const Bureaucrat& other ) {
 	return out;
 }
 
-void Bureaucrat::signForm( std::string const& formName ) const {
-	std::cout << this->_name << " signed " << formName;
+void Bureaucrat::signForm( Form& form ) {
+	form.beSigned(*this);
 }

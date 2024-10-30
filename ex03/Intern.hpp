@@ -6,7 +6,7 @@
 /*   By: anarama <anarama@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 12:09:28 by anarama           #+#    #+#             */
-/*   Updated: 2024/10/17 13:53:33 by anarama          ###   ########.fr       */
+/*   Updated: 2024/10/30 11:00:21 by anarama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 
 # include "AForm.hpp"
 
-# define FORM_NAME_SHRUBBERY	"presidential pardon"
-# define FORM_NAME_ROBOTOMY		"robotomy request"
-# define FORM_NAME_PRESIDENT	"schrubbery creation"
+# define FORM_NAME_SHRUBBERY	"Schrubbery Creation"
+# define FORM_NAME_ROBOTOMY		"Robotomy Request"
+# define FORM_NAME_PRESIDENT	"Presidential Pardon"
 
 class Intern {
 	private:

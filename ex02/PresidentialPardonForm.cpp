@@ -6,7 +6,7 @@
 /*   By: anarama <anarama@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 16:08:01 by anarama           #+#    #+#             */
-/*   Updated: 2024/10/17 13:57:06 by anarama          ###   ########.fr       */
+/*   Updated: 2024/10/30 10:19:03 by anarama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ PresidentialPardonForm::~PresidentialPardonForm( void ) {}
 
 void PresidentialPardonForm::execute( Bureaucrat const& executor ) const {
 	if (this->getIsSigned() == false) {
+		std::cout << "Presidential form was not sighed yet!" << std::endl;
 		throw PresidentialPardonForm::FormNotSignedException();
 	}
 	if (executor.getGrade() > this->getGradeToExec()) {

@@ -6,7 +6,7 @@
 /*   By: anarama <anarama@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 16:08:01 by anarama           #+#    #+#             */
-/*   Updated: 2024/10/17 13:58:28 by anarama          ###   ########.fr       */
+/*   Updated: 2024/10/30 10:51:46 by anarama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@
 #include "Bureaucrat.hpp"
 
 ShrubberyCreationForm::ShrubberyCreationForm( void ) :
-	AForm("shrubbery", 145, 137, false),
+	AForm("Schrubbery Creation", 145, 137, false),
 	_target(DEFAULT_TARGET_SCHRUBBERY) {}
 
 ShrubberyCreationForm::ShrubberyCreationForm( std::string const& target ) :
-	AForm("shrubbery", 145, 137, false), _target(target) {}
+	AForm("Schrubbery Creation", 145, 137, false), _target(target) {}
 
 ShrubberyCreationForm::ShrubberyCreationForm( const ShrubberyCreationForm& other ) :
 	AForm(	other.getName(),
@@ -44,6 +44,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm( void ) {}
 
 void ShrubberyCreationForm::execute( Bureaucrat const& executor ) const {
 	if (this->getIsSigned() == false) {
+		std::cout << "Shrubbery form was not sighed yet!" << std::endl;
 		throw ShrubberyCreationForm::FormNotSignedException();
 	}
 	if (executor.getGrade() > this->getGradeToExec()) {

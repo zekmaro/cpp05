@@ -6,7 +6,7 @@
 /*   By: anarama <anarama@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 12:24:10 by anarama           #+#    #+#             */
-/*   Updated: 2024/10/17 12:14:18 by anarama          ###   ########.fr       */
+/*   Updated: 2024/10/30 10:14:33 by anarama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 # define DEFAULT_GRADE_TO_SIGN	1
 # define DEFAULT_GRADE_TO_EXEC	1
 # define DEFAULT_IS_SIGNED		false
+
+class Bureaucrat;
 
 class Form {
 	private:

@@ -6,11 +6,13 @@
 /*   By: anarama <anarama@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 12:09:25 by anarama           #+#    #+#             */
-/*   Updated: 2024/10/17 13:59:58 by anarama          ###   ########.fr       */
+/*   Updated: 2024/10/30 11:37:20 by anarama          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Intern.hpp"
+
+#include <iostream>
 
 #include "PresidentialPardonForm.hpp"
 #include "ShrubberyCreationForm.hpp"
@@ -56,8 +58,10 @@ AForm* Intern::makeForm( std::string const& formName, std::string const& target)
 			form = new PresidentialPardonForm(target);
 			break;
 		default:
+			std::cout << "No match found!" << std::endl;
 			throw Intern::FormDoesntExistException();
 	}
+	std::cout << "Intern creates " << form->getName() << std::endl;
 	return form;
 }
 
